@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4">
+      <h3>Name of server to be added: </h3>
+      <input type='text' #serverName>
+      <button class="btn btn-primary" (click)="onGetServer()">Get Servers</button>
+      <button class="btn btn-primary" (click)="onAddServer(serverName.value)">Add Server</button>
+      <button class="btn btn-primary" (click)="onSave()">Save Changes</button>
+      <button class="btn btn-danger" (click)="onDeleteServer()">Delete Server</button>
+      <br>
+      <h3>Search: </h3>
+      <input type="text" #searchText>
+      <button class="btn btn-primary" (click)="onSearch(searchText.value)">Search</button>
+      <ul class="list-group" *ngFor="let server of servers; let i = index">
+        <li class="list-group-item">{{ server.name }} Active: {{ server.active }}</li>
+        <button class="btn btn-primary" (click)="onPatchServer(i)">Update Server</button>
+      </ul>
+    </div>
+  </div>
+</div>
